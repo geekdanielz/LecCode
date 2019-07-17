@@ -17,6 +17,13 @@ public class MyMath {
 		return (int)(((a + 0.1) + (b - 0.1)));
 	}
 	
+	public static double divide(double a, double b) throws ArithmeticException {
+		if(b==0) {
+			throw new ArithmeticException();
+		}
+		return a/b;
+	}
+	
 	/**
 	 * Return sum of two integer {@code a} and {@code b}.
 	 * @param a The first integer value

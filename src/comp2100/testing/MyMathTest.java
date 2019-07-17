@@ -18,5 +18,10 @@ public class MyMathTest {
 		assertEquals(3, math.add(1, 2));
 		assertEquals(4, math.add(1, 3));
 	}
+	
+	@Test(expected = ArithmeticException.class)
+	public void testDivid() {
+		assertEquals(0, MyMath.divide(1,0), 1e-10);
+	}
 
 }
