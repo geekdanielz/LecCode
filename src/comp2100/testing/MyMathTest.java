@@ -16,6 +16,9 @@ public class MyMathTest {
 	@Test
 	public void testSumFloor() {
 		assertEquals(1, math.sumAndFloor(0.6f, 0.7f));
+		
+		// will not pass the test because of floating point precision, 0.9f-0.1f != 0.8f
+		assertEquals(1, math.sumAndFloor(0.1f, 0.9f));
 	}
 	
 	@Test

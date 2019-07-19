@@ -13,7 +13,7 @@ public class MyMath {
 	 * @param	b	The second floating number
 	 * @return	floored sum of two floating number {@code a} and {@code b}
 	 */
-	public int sumAndFloor(float a, float b) {
+	public int sumAndFloor(double a, double b) {
 		return (int)(((a + 0.1f) + (b - 0.1f)));
 	}
 	
