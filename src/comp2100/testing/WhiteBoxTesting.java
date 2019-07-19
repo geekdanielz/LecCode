@@ -14,7 +14,7 @@ public class WhiteBoxTesting {
 	 */
 	public static void main(String args[]) {
 		
-		int result = MyMath.sumAndFloor(1.3f, 0.7f);
+		int result = new MyMath().sumAndFloor(1.3f, 0.7f);
 		
 		System.out.println("The result should be 2, actual result is: " + result);
 	}

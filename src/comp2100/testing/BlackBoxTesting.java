@@ -14,7 +14,7 @@ public class BlackBoxTesting {
 	 */	
 	public static void main(String args[]) {
 		
-		int result = MyMath.sumAndFloor(0.8f, 0.8f);
+		int result = new MyMath().sumAndFloor(0.8f, 0.8f);
 		
 		System.out.println("The result should be 1, actual result is: " + result);
 	}

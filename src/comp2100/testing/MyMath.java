@@ -13,11 +13,11 @@ public class MyMath {
 	 * @param	b	The second floating number
 	 * @return	floored sum of two floating number {@code a} and {@code b}
 	 */
-	public static int sumAndFloor(float a, float b) {
-		return (int)(((a + 0.1) + (b - 0.1)));
+	public int sumAndFloor(float a, float b) {
+		return (int)(((a + 0.1f) + (b - 0.1f)));
 	}
 	
-	public static double divide(double a, double b) throws ArithmeticException {
+	public double divide(double a, double b) throws ArithmeticException {
 		if(b==0) {
 			throw new ArithmeticException();
 		}

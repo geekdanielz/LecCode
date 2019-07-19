@@ -2,26 +2,39 @@ package comp2100.testing;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class MyMathTest {
+	private MyMath math;
+	
+	@Before
+	public void createMath() {
+		math = new MyMath();
+	}
 
 	@Test
 	public void testSumFloor() {
-		assertEquals(1, MyMath.sumAndFloor(0.6f, 0.7f));
+		assertEquals(1, math.sumAndFloor(0.6f, 0.7f));
 	}
 	
 	@Test
 	public void testAdd() {
-		MyMath math = new MyMath();
-		
+		//Basic test		
 		assertEquals(3, math.add(1, 2));
 		assertEquals(4, math.add(1, 3));
 	}
 	
 	@Test(expected = ArithmeticException.class)
-	public void testDivid() {
-		assertEquals(0, MyMath.divide(1,0), 1e-10);
+	public void testDivideZero() {
+		// divide by zero will raise ArithmeticException
+		assertEquals(0, math.divide(1, 0), 1e-10);
 	}
-
+	
+	@Test
+	public void testDivide() {
+		// double or float number comparison requires delta
+		assertEquals(0.3333333, math.divide(1, 3), 0.000001);
+	}
+	
 }
