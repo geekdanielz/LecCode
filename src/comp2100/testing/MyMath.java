@@ -17,6 +17,13 @@ public class MyMath {
 		return (int)(((a + 0.1f) + (b - 0.1f)));
 	}
 	
+	/**
+	 * This methods will perform {@code a}/{@code b}.
+	 * @param a numerator
+	 * @param b denominator
+	 * @return
+	 * @throws ArithmeticException
+	 */
 	public double divide(double a, double b) throws ArithmeticException {
 		if(b==0) {
 			throw new ArithmeticException();
