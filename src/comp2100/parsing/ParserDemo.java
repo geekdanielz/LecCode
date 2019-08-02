@@ -7,15 +7,15 @@ import comp2100.parsing.tokenizer.Tokenizer;
  * Parser for grammar:
  * 
  * <exp> ::= <term> | <term> + <exp>
- * <term> ::= <factor> | <fator> * <term>
- * <factor> ::= <lit> | <var>
+ * <term> ::= <factor> | <factor> * <term>
+ * <factor> ::= <lit>
  *  
  * @author dongwookim
  *
  */
 public class ParserDemo {
 
-	final static String exp = "3+4+abc*7*def";
+	final static String exp = "3+4*7+5+6*2";
 	
 	public static void main(String[] args) {
 		Tokenizer tok = new MySimpleTokenizer(exp);
@@ -23,5 +23,6 @@ public class ParserDemo {
 		Exp parsedExp = Parser.parseExp(tok);
 		
 		System.out.println(parsedExp.show());
+		System.out.println(parsedExp.evaluate());
 	}
 }

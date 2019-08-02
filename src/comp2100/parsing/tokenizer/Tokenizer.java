@@ -1,7 +1,5 @@
 package comp2100.parsing.tokenizer;
 
-import comp2100.parsing.advanced.ParseException;
-
 /**
  * Tokenizer - this uses the StreamTokenizer class to make a simpler tokenizer
  * which provides a stream of tokens which are either Integer, Double, or

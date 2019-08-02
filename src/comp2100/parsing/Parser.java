@@ -6,19 +6,27 @@ import comp2100.parsing.tokenizer.Tokenizer;
  * Parser for grammar:
  * 
  * <exp> ::= <term> | <term> + <exp>
- * <term> ::= <factor> | <fator> * <term>
- * <factor> ::= <lit> | <var>
+ * <term> ::= <factor> | <factor> * <term>
+ * <factor> ::= <lit>
  *  
  * @author dongwookim
  *
  */
 public class Parser {
 	
+	/**
+	 * Parser for <exp>.
+	 * <exp> has two production rules: <term> | <term> + <exp>
+	 * If there's + token after parsing term, the parser return an addition expression
+	 * otherwise it returns parsed term.
+	 * 
+	 * @param tok Tokenizer
+	 * @return parsed expression for <exp>
+	 */
 	public static Exp parseExp(Tokenizer tok) {
 		Exp term = parseTerm(tok);
-		tok.next();
-
-		if(tok.current().equals("+")) {
+		
+		if(tok.hasNext() && tok.current().equals("+")) {
 			tok.next();
 			Exp exp = parseExp(tok);
 			return new AddExp(term, exp);
@@ -27,11 +35,19 @@ public class Parser {
 		}
 	}
 	
+	/**
+	 * Parser for <term>.
+	 * <term> has two production rules: <factor> | <factor> * <term>
+	 * If there's * token after parsing factor, the parser return a multiplication expression
+	 * otherwise it returns parsed factor.
+	 * 
+	 * @param tok Tokenizer
+	 * @return parsed expression for <term>
+	 */
 	public static Exp parseTerm(Tokenizer tok) {
 		Exp factor = parseFactor(tok);
-		tok.next();
 		
-		if (tok.current().equals("*")) {
+		if (tok.hasNext() && tok.current().equals("*")) {
 			tok.next();
 			Exp term = parseTerm(tok);
 			return new MultExp(factor, term);
@@ -40,17 +56,18 @@ public class Parser {
 		}
 	}
 
+	/**
+	 * Parser for <factor>
+	 * Note that <factor> has a single production rule.
+	 * It always return integer literal as a parsed result.
+	 * 
+	 * @param tok Tokenizer
+	 * @return parsed expression for <factor>
+	 */
 	private static Exp parseFactor(Tokenizer tok) {
-		if(tok.current() instanceof Integer) {
-			Exp lit = new LitExp((Integer)tok.current());
-			tok.next();
-			return lit;
-		}else {
-			Exp var = new VarExp((String)tok.current());
-			tok.next();
-			return var;
-		}
-		
+		Exp lit = new LitExp((Integer)tok.current());
+		tok.next();
+		return lit;		
 	}
 
 }

@@ -70,8 +70,6 @@ public class MySimpleTokenizer extends Tokenizer {
 		}
 	}
 
-	
-
 	/**
 	 * Remove white space in a sequence until there's no whitespace in the current position
 	 */
