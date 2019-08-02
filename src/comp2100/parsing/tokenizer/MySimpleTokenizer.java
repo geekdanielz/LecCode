@@ -13,9 +13,9 @@ public class MySimpleTokenizer extends Tokenizer {
 	private String text;
 	private int pos;
 	private Object current;
-	
+
 	static final char whitespace[] = { ' ', '\n', '\t' };
-	static final char symbol[] = { '(', ')', '=', ':', '?', ',', '*', '+' };
+	static final char symbol[] = { '*', '+' };
 
 	public MySimpleTokenizer(String text) {
 		this.text = text;
